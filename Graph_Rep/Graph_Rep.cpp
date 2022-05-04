@@ -1,43 +1,30 @@
-#include <iostream>
-#include <ctime>
 #include "Header.h"
 
-using namespace std;
+
 
 int main()
 {
 	srand(time(NULL));
 	setlocale(LC_ALL, "ru");
 	int Dim;
+	bool Type;
+	// true - неориентированный
+	// false - ориентированный
 
 	cout << "Enter Dimension: ";
 	cin >> Dim;
+	cout << "Enter Type: ";
+	cin >> Type;
+
 
 	int** Adj_Matrix = new int* [Dim];
 
+	InitialCreating(Adj_Matrix, Dim, Type);
 
-	for (int i = 0; i < Dim; i++)
-	{
-		Adj_Matrix[i] = new int[Dim];
-	}
+	
 
-	for (int i = 0; i < Dim; i++) // ввод 
-	{
-		for (int j = 0; j < Dim; j++)
-		{
-			Adj_Matrix[i][j] = rand() % 1;
-		}
-	}
-
-	for (int i = 0; i < Dim; i++) // ввод 
-	{
-		for (int j = 0; j < Dim; j++)
-		{
-			cout << Adj_Matrix[i][j] << " ";
-		}
-		cout << endl;
-	}
 
 }
+
 
 
