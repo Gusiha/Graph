@@ -18,9 +18,11 @@ int main()
 	int** Adj_Matrix = new int* [Dim];
 
 	InitialCreating(Adj_Matrix);
-	Max_Degree = Find_Degree(Adj_Matrix);
+	Max_Degree = FindDegree(Adj_Matrix);
 	Print(Adj_Matrix);
 
+	
+	delete[] Adj_Matrix;
 }
 
 

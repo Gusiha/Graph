@@ -10,7 +10,7 @@ bool Type;
 int Max_Degree;
 
 // Functions
-int Find_Degree(int** arr)
+int FindDegree(int** arr)
 {
 	int count = 0;
 	int max_count = 0;
@@ -79,4 +79,5 @@ int** InitialCreating(int** arr)
 
 	return arr;
 }
+
 
