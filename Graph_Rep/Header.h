@@ -4,7 +4,29 @@
 
 using namespace std;
 
-void Print(int** arr, int Dim)
+// Global Variables (Graph Information)
+int Dim;
+bool Type;
+int Max_Degree;
+
+// Functions
+int Find_Degree(int** arr)
+{
+	int count = 0;
+	int max_count = 0;
+	for (int i = 0; i < Dim; i++)
+	{
+		if (max_count < count) { max_count = count; }
+		count = 0;
+		for (int j = 0; j < Dim; j++)
+		{
+			if (count != 0) { count++; }
+		}
+	}
+	return max_count;
+}
+
+void Print(int** arr)
 {
 	for (int i = 0; i < Dim; i++)
 	{
@@ -16,13 +38,14 @@ void Print(int** arr, int Dim)
 	}
 }
 
-void InitialCreating(int** arr, int &Dim, bool &Type)
+int** InitialCreating(int** arr)
 {
 	for (int i = 0; i < Dim; i++)
 	{
 		arr[i] = new int[Dim];
 	}
 
+	// Неориентированный граф
 	if (Type)
 	{
 		for (int i = 0; i < Dim; i++)
@@ -42,6 +65,7 @@ void InitialCreating(int** arr, int &Dim, bool &Type)
 		}
 	}
 
+	// Ориентированный граф
 	else
 	{
 		for (int i = 0; i < Dim; i++)
@@ -53,5 +77,6 @@ void InitialCreating(int** arr, int &Dim, bool &Type)
 		}
 	}
 
-	Print(arr, Dim);
+	return arr;
 }
+
