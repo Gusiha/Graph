@@ -1,5 +1,5 @@
-#include "Header.h"
-
+#include "AdjacencyMatrix.h"
+#include "AdjacencyVector.h"
 
 
 int main()
@@ -10,6 +10,13 @@ int main()
 	AdjacencyMatrix Graph;
 
 	Graph.Print();
+	cout << endl;
+	Graph.Degree = Graph.FindDegree();
+
+	AdjancencyVector Graph1(Graph);
+
+	Graph1.Print();
+	
 
 	
 }

@@ -142,7 +142,8 @@
     <ClCompile Include="Graph_Rep.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header.h" />
+    <ClInclude Include="AdjacencyMatrix.h" />
+    <ClInclude Include="AdjacencyVector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

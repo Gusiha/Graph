@@ -3,13 +3,67 @@
 #include <ctime>
 
 using namespace std;
+struct AdjacencyMatrix;
+struct AdjancencyVector;
 
 struct AdjacencyMatrix
 {
 	int Dim;
 	bool Orientation;
 	int** Adj_Matrix;
-	
+	int Degree;
+
+	int FindDegree()
+	{
+		int MaxCount = 0;
+
+		if (Orientation)
+		{
+			int count = 0;
+			for (int i = 0; i < Dim; i++)
+			{
+				for (int j = 0; j < Dim; j++)
+				{
+					if (Adj_Matrix[i][j])
+					{
+						count++;
+					}
+				}
+				if (count >= MaxCount)
+				{
+					MaxCount = count;
+				}
+				count = 0;
+			}
+			Degree = MaxCount;
+		
+		}
+
+		else
+		{
+			int count = 0;
+			for (int i = 0; i < Dim; i++)
+			{
+				for (int j = 0; j < Dim; j++)
+				{
+					if (Adj_Matrix[i][j])
+					{
+						count++;
+					}
+				}
+				if (count >= MaxCount)
+				{
+					MaxCount = count;
+				}
+				count = 0;
+			}
+			
+			Degree = MaxCount;
+			
+		}
+		return Degree;
+	}
+
 	void Print()
 	{
 		for (int i = 0; i < Dim; i++)
@@ -29,7 +83,7 @@ struct AdjacencyMatrix
 			Adj_Matrix[i] = new int[Dim];
 		}
 
-		if (Orientation)
+		if (!Orientation)
 		{
 			for (int i = 0; i < Dim; i++)
 			{
@@ -68,6 +122,11 @@ struct AdjacencyMatrix
 
 	}
 
+	/*AdjancencyVector toAdjVector()
+	{
+		AdjancencyVector(*this);
+	}*/
+
 	AdjacencyMatrix()
 	{
 		cout << "Enter Dimension: ";
@@ -78,10 +137,11 @@ struct AdjacencyMatrix
 		Creating();
 	}
 
-	~AdjacencyMatrix()
+	/*~AdjacencyMatrix()
 	{
+		cout << "\nAdj_Matrix Destructor" << endl;
 		delete[] Adj_Matrix;
-	}
+	}*/
 };
 
 
