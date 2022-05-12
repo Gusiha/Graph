@@ -4,61 +4,84 @@
 
 using namespace std;
 
-void Print(int** arr, int Dim)
+struct AdjacencyMatrix
 {
-	for (int i = 0; i < Dim; i++)
-	{
-		for (int j = 0; j < Dim; j++)
-		{
-			cout << arr[i][j] << " ";
-		}
-		cout << endl;
-	}
-}
-
-void InitialCreating(int** arr, int &Dim, bool &Type)
-{
-	for (int i = 0; i < Dim; i++)
-	{
-		arr[i] = new int[Dim];
-	}
-
-	if (Type)
-	{
-		for (int i = 0; i < Dim; i++)
-		{
-			for (int j = 0; j <= i; j++)
-			{
-				if (i == j)
-				{
-					arr[i][j] = 0;
-				}
-				else
-				{
-					arr[i][j] = rand() % 10;
-					arr[j][i] = arr[i][j];
-				}
-			}
-		}
-	}
-
-	else
+	int Dim;
+	bool Orientation;
+	int** Adj_Matrix;
+	
+	void Print()
 	{
 		for (int i = 0; i < Dim; i++)
 		{
 			for (int j = 0; j < Dim; j++)
 			{
-				if (i == j)
-				{
-					arr[i][j] = 0;
-				}
-				else
-				{
-				arr[i][j] = rand() % 2;
-				}
+				cout << Adj_Matrix[i][j] << " ";
 			}
+			cout << endl;
 		}
 	}
 
-	Print(arr, Dim);
-}
+	void Creating()
+	{
+		for (int i = 0; i < Dim; i++)
+		{
+			Adj_Matrix[i] = new int[Dim];
+		}
+
+		if (Orientation)
+		{
+			for (int i = 0; i < Dim; i++)
+			{
+				for (int j = 0; j <= i; j++)
+				{
+					if (i == j)
+					{
+						Adj_Matrix[i][j] = 0;
+					}
+					else
+					{
+						Adj_Matrix[i][j] = rand() % 10;
+						Adj_Matrix[j][i] = Adj_Matrix[i][j];
+					}
+				}
+			}
+		}
+
+		else
+		{
+			for (int i = 0; i < Dim; i++)
+			{
+				for (int j = 0; j < Dim; j++)
+				{
+					if (i == j)
+					{
+						Adj_Matrix[i][j] = 0;
+					}
+					else
+					{
+						Adj_Matrix[i][j] = rand() % 10;
+					}
+				}
+			}
+		}
+
+	}
+
+	AdjacencyMatrix()
+	{
+		cout << "Enter Dimension: ";
+		cin >> Dim;
+		cout << "Enter Orientation: ";
+		cin >> Orientation;
+		Adj_Matrix = new int* [Dim];
+		Creating();
+	}
+
+	~AdjacencyMatrix()
+	{
+		delete[] Adj_Matrix;
+	}
+};
+
+
