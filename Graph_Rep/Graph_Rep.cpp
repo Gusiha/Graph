@@ -8,8 +8,8 @@ int main()
 	setlocale(LC_ALL, "ru");
 	int Dim;
 	bool Type;
-	// true - неориентированный
-	// false - ориентированный
+	// true - non-oriented
+	// false - oriented
 
 	cout << "Enter Dimension: ";
 	cin >> Dim;

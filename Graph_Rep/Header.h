@@ -35,7 +35,7 @@ void InitialCreating(int** arr, int &Dim, bool &Type)
 				}
 				else
 				{
-					arr[i][j] = rand() % 2;
+					arr[i][j] = rand() % 10;
 					arr[j][i] = arr[i][j];
 				}
 			}
@@ -48,7 +48,14 @@ void InitialCreating(int** arr, int &Dim, bool &Type)
 		{
 			for (int j = 0; j < Dim; j++)
 			{
+				if (i == j)
+				{
+					arr[i][j] = 0;
+				}
+				else
+				{
 				arr[i][j] = rand() % 2;
+				}
 			}
 		}
 	}
