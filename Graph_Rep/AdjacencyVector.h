@@ -19,33 +19,17 @@ struct AdjancencyVector
 		}
 	}
 
-	AdjancencyVector()
+	/*AdjancencyVector()
 	{
-		cout << "Enter Dimension: ";
-		cin >> Dim;
-		cout << "Enter Orientation: ";
-		cin >> Orientation;
-		cout << "Enter Degree: ";
-		cin >> Degree;
-
 		Adj_Vector = new int* [Dim];
 		
-		for (int i = 0; i < Dim; i++)
+		for (int i = 0; i < Degree; i++)
 		{
 			Adj_Vector[i] = new int[Degree];
 		}
+	}*/
 
-		for (int i = 0; i < Dim; i++)
-		{
-			for (int j = 0; j < Degree; j++)
-			{
-				Adj_Vector[i][j] = Dim - rand() % Dim;
-			}
-		}
-		
-	}
-
-	AdjancencyVector(AdjacencyMatrix &adjacencyMatrix)
+	AdjancencyVector(AdjacencyMatrix adjacencyMatrix)
 	{
 		// Data Graph
 		Dim = adjacencyMatrix.Dim;
@@ -88,9 +72,13 @@ struct AdjancencyVector
 
 			Column = 0;
 		}
+
 		
 	}
 
-	// ~AdjancencyVector();
-	
+	/*~AdjancencyVector()
+	{
+		cout << "AdjancencyVector Destructor" << endl;
+		delete[] Adj_Vector;
+	}*/
 };

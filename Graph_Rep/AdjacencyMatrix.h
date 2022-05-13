@@ -8,12 +8,10 @@ struct AdjancencyVector;
 
 struct AdjacencyMatrix
 {
-	#pragma region 
 	int Dim;
 	bool Orientation;
 	int** Adj_Matrix;
 	int Degree;
-	#pragma endregion
 
 	int FindDegree()
 	{
@@ -124,6 +122,11 @@ struct AdjacencyMatrix
 
 	}
 
+	/*AdjancencyVector toAdjVector()
+	{
+		AdjancencyVector(*this);
+	}*/
+
 	AdjacencyMatrix()
 	{
 		cout << "Enter Dimension: ";
@@ -134,11 +137,11 @@ struct AdjacencyMatrix
 		Creating();
 	}
 
-	~AdjacencyMatrix();
-	// {
-	// 	cout << "\n*AdjacencyMatrix*" << endl;
-	// };
-	
+	/*~AdjacencyMatrix()
+	{
+		cout << "\nAdj_Matrix Destructor" << endl;
+		delete[] Adj_Matrix;
+	}*/
 };
 
 

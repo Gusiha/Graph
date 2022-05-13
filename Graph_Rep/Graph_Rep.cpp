@@ -7,22 +7,17 @@ int main()
 	srand(time(NULL));
 	setlocale(LC_ALL, "ru");
 	
-	AdjacencyMatrix* Example = new AdjacencyMatrix();
+	AdjacencyMatrix Graph;
 
-	Example->Print();
+	Graph.Print();
 	cout << endl;
-	Example->Degree = Example->FindDegree();
+	Graph.Degree = Graph.FindDegree();
 
-	AdjancencyVector* Graph = new AdjancencyVector(*Example);
-	delete Example;
-	// Graph.~AdjacencyMatrix();
-	Graph->Print();
-	cout << endl;
+	AdjancencyVector Graph1(Graph);
 
-	AdjancencyVector Graph2;
-	Graph2.Print();
-
+	Graph1.Print();
 	
+
 	
 }
 
