@@ -1,20 +1,25 @@
 #pragma once
 #include <iostream>
 #include <ctime>
+#include <iomanip>
 
 using namespace std;
-struct AdjacencyMatrix;
-struct AdjancencyVector;
+class AdjacencyMatrix;
+class AdjacencyVector;
 
-struct AdjacencyMatrix
+class AdjacencyMatrix
 {
+public:
+
+	#pragma region Data
 	int Dim;
 	bool Orientation;
 	int** Adj_Matrix;
-	int Degree;
+	#pragma endregion
 
 	int FindDegree()
 	{
+		int Degree = 0;
 		int MaxCount = 0;
 
 		if (Orientation)
@@ -66,11 +71,12 @@ struct AdjacencyMatrix
 
 	void Print()
 	{
+		cout << "\n\t[AdjacencyMatrix]" << endl;
 		for (int i = 0; i < Dim; i++)
 		{
 			for (int j = 0; j < Dim; j++)
 			{
-				cout << Adj_Matrix[i][j] << " ";
+				cout << setw(2) << Adj_Matrix[i][j] << " ";
 			}
 			cout << endl;
 		}
@@ -95,7 +101,7 @@ struct AdjacencyMatrix
 					}
 					else
 					{
-						Adj_Matrix[i][j] = rand() % 10;
+						Adj_Matrix[i][j] = rand() % 2;
 						Adj_Matrix[j][i] = Adj_Matrix[i][j];
 					}
 				}
@@ -114,18 +120,13 @@ struct AdjacencyMatrix
 					}
 					else
 					{
-						Adj_Matrix[i][j] = rand() % 10;
+						Adj_Matrix[i][j] = rand() % 2;
 					}
 				}
 			}
 		}
 
 	}
-
-	/*AdjancencyVector toAdjVector()
-	{
-		AdjancencyVector(*this);
-	}*/
 
 	AdjacencyMatrix()
 	{
@@ -137,11 +138,40 @@ struct AdjacencyMatrix
 		Creating();
 	}
 
-	/*~AdjacencyMatrix()
+	AdjacencyMatrix(const AdjacencyMatrix& Old)
 	{
-		cout << "\nAdj_Matrix Destructor" << endl;
+		cout << "*Start Copy Constructor*" << endl;
+		Dim = Old.Dim;
+		Orientation = Old.Orientation;
+		Adj_Matrix = new int* [Dim];
+		for (int i = 0; i < Dim; i++)
+		{
+			Adj_Matrix[i] = new int[Dim];
+		}
+
+		for (int i = 0; i < Dim; i++)
+		{
+			for (int j = 0; j < Dim; j++)
+			{
+				Adj_Matrix[i][j] = Old.Adj_Matrix[i][j];
+			}
+		}
+		
+		cout << "*Finish Copy Constructor*" << endl;
+
+
+	}
+
+	~AdjacencyMatrix()
+	{
+		for (int i = 0; i < Dim; i++)
+		{
+			delete[] Adj_Matrix[i];
+		}
 		delete[] Adj_Matrix;
-	}*/
+		cout << "*Destructor AdjacencyMatrix*";
+	}
+
 };
 
 

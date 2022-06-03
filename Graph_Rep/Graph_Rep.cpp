@@ -8,14 +8,19 @@ int main()
 	setlocale(LC_ALL, "ru");
 	
 	AdjacencyMatrix Graph;
-
 	Graph.Print();
-	cout << endl;
-	Graph.Degree = Graph.FindDegree();
-
-	AdjancencyVector Graph1(Graph);
-
+	
+	
+	AdjacencyVector Graph1(Graph);
+	Graph.Print();
 	Graph1.Print();
+
+	
+	//Graph.Degree = Graph.FindDegree();
+
+	//AdjacencyVector Graph1(Graph);
+
+	//Graph1.Print();
 	
 
 	
