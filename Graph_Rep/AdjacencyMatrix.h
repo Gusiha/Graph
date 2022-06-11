@@ -99,7 +99,7 @@ public:
 					}
 					else
 					{
-						Adj_Matrix[i][j] = rand() % 2;
+						Adj_Matrix[i][j] = rand() % 20;
 						Adj_Matrix[j][i] = Adj_Matrix[i][j];
 					}
 				}
@@ -118,7 +118,7 @@ public:
 					}
 					else
 					{
-						Adj_Matrix[i][j] = rand() % 2;
+						Adj_Matrix[i][j] = rand() % 20;
 					}
 				}
 			}
