@@ -142,6 +142,7 @@
     <ClCompile Include="Graph_Rep.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdjacencyListClass.h" />
     <ClInclude Include="AdjacencyMatrix.h" />
     <ClInclude Include="AdjacencyVector.h" />
   </ItemGroup>

@@ -1,18 +1,13 @@
 #pragma once
-#define REPLACE = false
+
 
 class AdjacencyVector
 {
 public:
-
-	#pragma region Data
-
 	int Dim;
 	bool Orientation;
 	int Degree;
 	int** Adj_Vector;
-
-	#pragma endregion
 
 	void Print()
 	{
@@ -26,7 +21,9 @@ public:
 			cout << endl;
 		}
 	}
-#ifdef REPLACE == true
+
+	// AdjacencyVector creation from AdjacencyMatrix
+	#ifdef REPLACE
 
 	AdjacencyVector(AdjacencyMatrix& adjacencyMatrix)
 	{
@@ -68,7 +65,7 @@ public:
 		}
 	}
 
-#else
+	#else
 	AdjacencyVector(AdjacencyMatrix adjacencyMatrix)
 	{
 		// Data Transfer
@@ -108,7 +105,21 @@ public:
 			Column = 0;
 		}
 	}
-#endif // REPLACE
+	#endif // REPLACE
+
+	~AdjacencyVector()
+	{
+		for (int i = 0; i < Dim; i++)
+		{
+			delete[] Adj_Vector[i];
+		}
+		delete[] Adj_Vector;
+		#ifdef DEBUG
+			cout << "*Destructor AdjacencyVector*" << endl;
+		#endif // DEBUG
+	}
 
 
+
+	
 };

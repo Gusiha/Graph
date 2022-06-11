@@ -1,11 +1,9 @@
 #pragma once
-#include <iostream>
-#include <ctime>
-#include <iomanip>
 
 using namespace std;
 class AdjacencyMatrix;
 class AdjacencyVector;
+class AdjacencyListClass;
 
 class AdjacencyMatrix
 {
@@ -159,7 +157,6 @@ public:
 		
 		cout << "*Finish Copy Constructor*" << endl;
 
-
 	}
 
 	~AdjacencyMatrix()
@@ -169,7 +166,11 @@ public:
 			delete[] Adj_Matrix[i];
 		}
 		delete[] Adj_Matrix;
-		cout << "*Destructor AdjacencyMatrix*";
+		#ifdef DEBUG
+		cout << "*Destructor AdjacencyMatrix*" << endl;;
+		#endif // DEBUG
+
+		
 	}
 
 };
