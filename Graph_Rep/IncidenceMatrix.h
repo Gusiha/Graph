@@ -61,8 +61,6 @@ public:
 						j++;
 					}
 				}
-				else
-					cout << "Please extend graph dimension (> 1)" << endl;
 			}
 		}
 
@@ -86,8 +84,6 @@ public:
 						j++;
 					}
 				}
-				else
-					cout << "Please extend graph dimension (> 1)" << endl;
 			}
 		}
 	}
