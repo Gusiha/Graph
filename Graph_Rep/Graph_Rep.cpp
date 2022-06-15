@@ -7,7 +7,7 @@
 #include "AdjacencyMatrix.h"
 #include "AdjacencyVector.h"
 #include "AdjacencyListClass.h"
-
+#include "IncidenceMatrix.h"
 
 int main()
 {
@@ -23,6 +23,8 @@ int main()
 	AdjacencyListClass Graph3(Graph2);
 	Graph3.Print();
 	
+	IncidenceMatrix Graph4(Graph3);
+	Graph4.Print();
 }
 
 

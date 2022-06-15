@@ -41,16 +41,10 @@ public:
 
 			for (auto it = Adj_List[i].begin(); it != Adj_List[i].end(); ++it)
 			{
-
 				if (*it == Adj_List[i].back())
 					cout << *it;
 				else
-					cout << *it << "->";
-				/*if (it != Adj_List[i].end())
-					cout << *it << "->";
-				else
-					cout << *it << endl;*/
-				
+					cout << *it << "->";				
 			}
 			cout << endl;
 		}

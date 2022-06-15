@@ -41,24 +41,17 @@ public:
 	{
 		int j = 0;
 		
-		cout << *AdjacencyList.Adj_List[0].begin();
-
 		if (Orientation)
 		{
 			for (int i = 0; i < Dim; i++)
 			{
 				if (AdjacencyList.Adj_List[i].size() > 1)
 				{
-
 					if (*AdjacencyList.Adj_List[i].begin())
 					{
-
 						Incid_Matrix[i][j] = 1;
-
-						cout << Incid_Matrix[*AdjacencyList.Adj_List[i].begin() - 1][j];
 						Incid_Matrix[*AdjacencyList.Adj_List[i].begin() - 1][j] = -1;
-						j++;
-						
+						j++;	
 					}
 
 					for (auto it = AdjacencyList.Adj_List[i].begin(); it != --AdjacencyList.Adj_List[i].end();)
@@ -68,6 +61,8 @@ public:
 						j++;
 					}
 				}
+				else
+					cout << "Please extend graph dimension (> 1)" << endl;
 			}
 		}
 
@@ -75,24 +70,24 @@ public:
 		{
 			for (int i = 0; i < Dim; i++)
 			{
-				for (auto it = AdjacencyList.Adj_List[i].begin(); it != AdjacencyList.Adj_List[i].end();)
+				if (AdjacencyList.Adj_List[i].size() > 1)
 				{
-					Incid_Matrix[*it][j] = 1;
-
-					// Iterator changes in "if" condition
-					if (++it != AdjacencyList.Adj_List[i].end())
+					if (*AdjacencyList.Adj_List[i].begin())
 					{
-						Incid_Matrix[*it][j] = 1;
+						Incid_Matrix[i][j] = 1;
+						Incid_Matrix[*AdjacencyList.Adj_List[i].begin() - 1][j] = 1;
+						j++;	
 					}
 
-					// Revert the first vertex
-					else
+					for (auto it = AdjacencyList.Adj_List[i].begin(); it != --AdjacencyList.Adj_List[i].end();)
 					{
-						Incid_Matrix[*(--it)][j] = 0;
+						Incid_Matrix[*it-1][j] = 1;
+						Incid_Matrix[*++it-1][j] = 1;
+						j++;
 					}
-
-					j++;
 				}
+				else
+					cout << "Please extend graph dimension (> 1)" << endl;
 			}
 		}
 	}
@@ -104,7 +99,6 @@ public:
 		Orientation = AdjacencyList.Orientation;
 		Degree = AdjacencyList.Degree;
 		EdgeAmount = FindEdgeAmount(AdjacencyList);
-
 
 		// Define Dimension of Incid_Matrix
 		Incid_Matrix = new int* [Dim];
@@ -123,6 +117,7 @@ public:
 			}
 		}
 
+		// Transition Algorithm (Adj_List -> IncidenceMatrix)
 		FillIncidenceMatrix(AdjacencyList);
 	}
 
@@ -133,7 +128,9 @@ public:
 			delete[] Incid_Matrix[i];
 		}
 		delete[] Incid_Matrix;
+		#ifdef DEBUG
 		cout << "*Incidence Destructor*" << endl;
+		#endif
 	}
 
 };

@@ -145,6 +145,7 @@
     <ClInclude Include="AdjacencyListClass.h" />
     <ClInclude Include="AdjacencyMatrix.h" />
     <ClInclude Include="AdjacencyVector.h" />
+    <ClInclude Include="IncidenceMatrix.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
