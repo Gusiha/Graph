@@ -54,7 +54,7 @@ public:
 	{
 		delete[] Adj_List;
 		#ifdef DEBUG
-		cout << "*Adj_List Destructor*" << endl;
+		cout << "*Destructor Adj_List *" << endl;
 		#endif // DEBUG
 
 	}

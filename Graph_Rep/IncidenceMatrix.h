@@ -125,7 +125,7 @@ public:
 		}
 		delete[] Incid_Matrix;
 		#ifdef DEBUG
-		cout << "*Incidence Destructor*" << endl;
+		cout << "*Destructor Incidence*" << endl;
 		#endif
 	}
 
